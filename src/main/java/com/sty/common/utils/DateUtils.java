@@ -35,6 +35,41 @@ public class DateUtils {
 		return c.getTime();
 	}
 	
+	/**
+	 * 
+	 * @Title: 计算年龄
+	 * @Description: TODO
+	 * @return: int
+	 */
+	public static int calculateAge(Date birthday) {
+		if(birthday.compareTo(new Date()) > 0) {
+			throw new RuntimeException("给定的生日不能大于当前日期" + birthday);
+		}
+		//计算生日的年月日
+		Calendar c = Calendar.getInstance();
+		c.setTime(birthday);
+		int year = c.get(Calendar.YEAR); //得到出生的年份
+		int month = c.get(Calendar.MONTH); //得到出生的月份
+		int day = c.get(Calendar.DAY_OF_MONTH); //得到出生的日
+		System.out.println(" year : " + year);
+		System.out.println("month : " + month);
+		System.out.println("day : " + day);
+		//计算当前日期的年 月 日
+		c.setTime(new Date());
+		int dyear = c.get(Calendar.YEAR); //得到当前的年份
+		int dmonth = c.get(Calendar.MONTH); //得到当前的月份
+		int dday = c.get(Calendar.DAY_OF_MONTH); //得当前的日
+		System.out.println("dyear : " + dyear);
+		System.out.println("dmonth : " + dmonth);
+		System.out.println(dday);
+		int age =  dyear - year;
+		if(dmonth < month) {
+			age--;
+		} else if(dmonth == month && dday < day) {
+			age--;
+		}
+		return age;
+	}
 	
 }
 

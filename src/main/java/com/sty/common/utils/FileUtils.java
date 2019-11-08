@@ -26,7 +26,7 @@ public class FileUtils {
 	 * @return: File
 	 */
 	public static File getTempDirectory() {
-		
+		System.getProperty("");
 		return null;
 	}
 	
@@ -41,4 +41,9 @@ public class FileUtils {
 		
 		return null;
 	}
+	
+	
+	
+	
+	
 }
